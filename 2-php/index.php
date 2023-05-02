@@ -14,3 +14,4 @@ Test::run('{{{{}}}', $checkValidity, false);
 Test::run('{{{{{}}}}}', $checkValidity, true);
 Test::run('{{a}{b}{{c}}d}', $checkValidity, true);
 Test::run('{{a}{b}{{c}}d}}', $checkValidity, false);
+Test::run('}}{{', $checkValidity, false);

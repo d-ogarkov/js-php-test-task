@@ -9,18 +9,21 @@ class Brackets {
 
   public function isValid() : bool {
     $length = mb_strlen($this->codeString);
-    $count = 0;
+    $nesting = 0;
 
     for ($i = 0; $i < $length; $i++) {
       $char = mb_substr($this->codeString, $i, 1);
+
       if ($char === '{') {
-        $count++;
+        $nesting++;
       }
       else if ($char === '}') {
-        $count--;
+        $nesting--;
       }
+
+      if ($nesting < 0) break;
     }
-    return ($count === 0);
+    return ($nesting === 0);
   }
 
 }
